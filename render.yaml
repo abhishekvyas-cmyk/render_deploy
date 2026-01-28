@@ -1,19 +1,5 @@
 services:
   # -------------------
-  # MongoDB (Private)
-  # -------------------
-  - type: pserv
-    name: mongo-db
-    env: docker
-    image: 
-      url: mongo:6
-    plan: free
-    disk:
-      name: mongo-data
-      mountPath: /data/db
-      sizeGB: 1
-
-  # -------------------
   # Backend API
   # -------------------
   - type: web
@@ -26,12 +12,9 @@ services:
       - key: PORT
         value: 5000
       - key: MONGODB_URI
-        fromService:
-          name: mongo-db
-          type: pserv
-          property: host
+        sync: false     # <-- set in Render UI
       - key: GEMINI_API_KEY
-        sync: false
+        sync: false     # <-- set in Render UI
 
   # -------------------
   # Nginx Frontend Proxy
