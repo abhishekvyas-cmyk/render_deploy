@@ -5,7 +5,8 @@ services:
   - type: pserv
     name: mongo-db
     env: docker
-    image: mongo:6
+    image: 
+      url: mongo:6
     plan: free
     disk:
       name: mongo-data
