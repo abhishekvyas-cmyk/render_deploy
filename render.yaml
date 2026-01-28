@@ -41,5 +41,3 @@ services:
     env: docker
     dockerfilePath: nginx/Dockerfile
     plan: free
-    dependsOn:
-      - node-backend
